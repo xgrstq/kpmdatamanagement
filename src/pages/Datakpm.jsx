@@ -59,10 +59,13 @@ export default function DataKpm() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">Manajemen Data KPM</h1>
-        <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-emerald-700 transition">
-          <Plus size={18} /> Tambah Data
-        </button>
-      </div>
+        <button
+        onClick={() => alert("fitur tambah kpm belum dibuat")}
+        className="bg-emerald-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-emerald-700 transition"
+        >
+        <Plus size={18} /> Tambah Data
+         </button>
+         </div>
 
       {/* Filter Section */}
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
