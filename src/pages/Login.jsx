@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ShieldCheck } from "lucide-react";
 
 export default function Login() {
-  const [email, setEmail] = useState("admin@gh.com");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordFocus, setIsPasswordFocus] = useState(false);
 
