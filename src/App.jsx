@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { supabase } from "./lib/supabase";
 
 import Login from "./pages/Login";
-import Dashboard from "./pages/dashboard";
-import DataKpm from "./pages/datakpm";
+import Dashboard from "./pages/Dashboard";
+import DataKpm from "./pages/Datakpm";
 import MainLayout from "./layouts/Mainlayout";
 
 
