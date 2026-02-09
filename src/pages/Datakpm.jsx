@@ -7,6 +7,7 @@ export default function DataKpm() {
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({ nik: "", kk: "", nama: "", status: "" });
   const [editData, setEditData] = useState(null);
+  const [addData, setAddData] = useState(null);
 
   const fetchKpm = async () => {
     setLoading(true);
@@ -55,16 +56,46 @@ export default function DataKpm() {
     }
   };
 
+  const handleAddSave = async () => {
+  const { error } = await supabase.from("kpm").insert([
+    {
+      no_kk: addData.no_kk,
+      nama_kepala_keluarga: addData.nama_kepala_keluarga,
+      desa: addData.desa,
+      kecamatan: addData.kecamatan,
+      status_kpm: addData.status_kpm,
+    },
+  ]);
+
+     if (error) {
+       alert(error.message);
+      return;
+     }
+
+     setAddData(null);
+     fetchKpm();
+    };
+
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">Manajemen Data KPM</h1>
         <button
-        onClick={() => alert("fitur tambah kpm belum dibuat")}
-        className="bg-emerald-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-emerald-700 transition"
-        >
-        <Plus size={18} /> Tambah Data
-         </button>
+  onClick={() =>
+    setAddData({
+      no_kk: "",
+      nama_kepala_keluarga: "",
+      desa: "",
+      kecamatan: "",
+      status_kpm: "aktif",
+    })
+  }
+  className="bg-emerald-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-emerald-700 transition"
+>
+  <Plus size={18} /> Tambah Data
+</button>
+
          </div>
 
       {/* Filter Section */}
@@ -186,6 +217,77 @@ export default function DataKpm() {
 
         <button
           onClick={handleEditSave}
+          className="px-4 py-2 rounded-xl bg-emerald-700 text-white font-semibold hover:bg-emerald-800 transition"
+        >
+          Simpan
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+     {addData && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
+    <div className="bg-white w-full max-w-lg rounded-2xl shadow-xl p-6 space-y-4">
+      <h2 className="text-xl font-bold text-gray-800">
+        Tambah Data KPM
+      </h2>
+
+      <div className="space-y-3">
+        <input
+          className="w-full border border-gray-200 p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+          placeholder="No KK"
+          value={addData.no_kk}
+          onChange={(e) => setAddData({ ...addData, no_kk: e.target.value })}
+        />
+
+        <input
+          className="w-full border border-gray-200 p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+          placeholder="Nama Kepala Keluarga"
+          value={addData.nama_kepala_keluarga}
+          onChange={(e) =>
+            setAddData({ ...addData, nama_kepala_keluarga: e.target.value })
+          }
+        />
+
+        <input
+          className="w-full border border-gray-200 p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+          placeholder="Desa"
+          value={addData.desa}
+          onChange={(e) => setAddData({ ...addData, desa: e.target.value })}
+        />
+
+        <input
+          className="w-full border border-gray-200 p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+          placeholder="Kecamatan"
+          value={addData.kecamatan}
+          onChange={(e) =>
+            setAddData({ ...addData, kecamatan: e.target.value })
+          }
+        />
+
+        <select
+          className="w-full border border-gray-200 p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+          value={addData.status_kpm}
+          onChange={(e) =>
+            setAddData({ ...addData, status_kpm: e.target.value })
+          }
+        >
+          <option value="aktif">Aktif</option>
+          <option value="tidak aktif">Tidak Aktif</option>
+        </select>
+      </div>
+
+      <div className="flex justify-end gap-3 pt-2">
+        <button
+          onClick={() => setAddData(null)}
+          className="px-4 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 transition"
+        >
+          Batal
+        </button>
+
+        <button
+          onClick={handleAddSave}
           className="px-4 py-2 rounded-xl bg-emerald-700 text-white font-semibold hover:bg-emerald-800 transition"
         >
           Simpan
