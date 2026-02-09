@@ -4,7 +4,7 @@ import { supabase } from "./lib/supabase";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/dashboard";
-import DataKpm from "./pages/atakpm";
+import DataKpm from "./pages/datakpm";
 import MainLayout from "./layouts/Mainlayout";
 
 
