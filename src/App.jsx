@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { supabase } from "./lib/supabase";
 
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import Dashboard from "./pages/dashboard";
-import DataKpm from "./pages/datakpm";
-import MainLayout from "./layouts/mainlayout";
+import DataKpm from "./pages/atakpm";
+import MainLayout from "./layouts/Mainlayout";
 
 
 
