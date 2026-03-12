@@ -1,16 +1,52 @@
-# React + Vite
+KPM Data Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web-based platform for managing KPM (Beneficiary Families) data efficiently.
+This system is designed to simplify data collection, family member tracking, and social assistance monitoring with a clean and scalable architecture.
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 Secure authentication system
+- 📊 Dashboard with real-time data summary
+- 👨‍👩‍👧‍👦 Family-based KPM data structure
+- ➕ Add, edit, delete KPM data
+- 📋 Manage family members (CRUD)
+- 🔎 Advanced filtering (NIK, KK, name, status)
+- 📱 Responsive UI (mobile & desktop)
+- ⚡ Fast and scalable backend using Supabase
 
-## React Compiler
+🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Frontend: React + Vite
+- Styling: Tailwind CSS
+- Backend: Supabase (PostgreSQL + Auth)
+- Icons: Lucide React
 
-## Expanding the ESLint configuration
+🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository
+
+git clone https://github.com/yourusername/kpmdatamanagement.git
+cd kpmdatamanagement
+
+2. Install dependencies
+
+npm install
+
+3. Setup environment variables
+
+Create ".env" file:
+
+VITE_SUPABASE_URL=your_url
+VITE_SUPABASE_ANON_KEY=your_key
+
+4. Run development server
+
+npm run dev
+
+📌 Project Status
+
+This project is actively developed and continuously improved with new features and optimizations.
+
+👨‍💻 Author
+
+Built with ❤️ by ngodinginaja
